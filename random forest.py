@@ -35,7 +35,6 @@ groups = []    #training set: 1,  test set: 0
 iamtrain = 0 
 
 ####-------------------------------------------------------------------------------------------------------------------
-#这个就是读取文件的
 def gci(filepath,i):
     global class_label
     files = os.listdir(filepath)
@@ -50,7 +49,7 @@ def gci(filepath,i):
             if fi_d.endswith(".txt") == 1:
                 readFile(os.path.join(filepath,fi_d),i)
 
-#迭代读文件，i为类别字符串
+
 ####-------------------------------------------------------------------------------------------------------------------
 #spectra processing
 def derivative(data):
@@ -172,7 +171,7 @@ def gcf(X_train, X_test, y_train, y_test):
     param_trees = [1000]
     i = 0
     while i < param_num:  
-        result_f_name = 'C:/Users/lgkgroup/Desktop/test2/param_trees' +str(param_trees[i]) + '.txt'##################################要改得地方
+        result_f_name = 'C:/Users/lgkgroup/Desktop/test2/param_trees' +str(param_trees[i]) + '.txt'##################################
         result_f = open( result_f_name, 'w')
         result_f.write('train_num: ' + str(train_num) + '    test_num: ' + str(test_num) +'\n\n')
         result_f.write(class_name_s)
@@ -214,7 +213,7 @@ def gcf(X_train, X_test, y_train, y_test):
             if time_temp < time_best:
                 time_best = time_temp
             importance_all=np.zeros(sample_len,)
-            importance_all=importance_all+rf_clf.feature_importances_#################################################从此处修改
+            importance_all=importance_all+rf_clf.feature_importances_#################################################
             accuracy_temp = metrics.accuracy_score(y_test, y_pred)
             print()
             precision_all.append(accuracy_temp)
